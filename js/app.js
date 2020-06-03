@@ -1,9 +1,9 @@
 class App extends React.Component {
     state = { 
-        comment: [],
+        // comments: [],
         comments: [],
-        name : "Pauline",
-        message : "Coucou",
+        name : "",
+        message : "",
     }
 
     handleName = event => {
@@ -20,12 +20,12 @@ class App extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        let comment = {
+            "name": this.state.name,
+            "message": this.state.message
+        }
         this.setState({
-            comment: {
-                name: this.state.name,
-                message: this.state.message,
-            }, 
-            comments: this.state.comments.concat(this.state.comment)            
+            comments: this.state.comments.concat(comment)
         })
         console.log(this.state.comments)
     }        
